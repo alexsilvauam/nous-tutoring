@@ -273,8 +273,9 @@ function ratiumRespond(userText) { const lc = userText.toLowerCase(); if (lc.inc
 
 async function callAI(userText) {
   const resp = await fetch('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: userText, user: state.user }) });
-  const data = await resp.json();
-  if (!resp.ok) throw new Error(data?.error || 'AI error');
+  let data;
+  try { data = await resp.json(); } catch { data = {}; }
+  if (!resp.ok) throw new Error(data?.detail || data?.error || 'AI error');
   return data.reply || 'No obtuve respuesta.';
 }
 
