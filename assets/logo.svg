@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-labelledby="title desc">
+  <title id="title">Nous - Intelligent Tutoring</title>
+  <desc id="desc">Logotipo de cerebro estilizado en dos hemisferios con nodos y conexiones</desc>
+  <defs>
+    <style>
+      .navy{fill:#2F4156}
+      .teal{fill:#567C8D}
+      .stroke-navy{stroke:#2F4156;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      .stroke-teal{stroke:#567C8D;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      .dot{fill:#2F4156}
+    </style>
+  </defs>
+  <rect x="0" y="0" width="200" height="200" fill="none"/>
+  <!-- Left hemisphere -->
+  <path class="stroke-navy" fill="#FFFFFF" d="M95 55c-22 0-40 18-40 40 0 22 18 40 40 40 6 0 11-1 16-3V58c-5-2-10-3-16-3z"/>
+  <!-- Right hemisphere -->
+  <path class="stroke-teal teal" d="M105 55c22 0 40 18 40 40 0 22-18 40-40 40-6 0-11-1-16-3V58c5-2 10-3 16-3z"/>
+  <!-- Nodes and connections left -->
+  <circle cx="70" cy="80" r="5" class="dot"/>
+  <circle cx="85" cy="92" r="4" class="dot"/>
+  <circle cx="78" cy="110" r="4" class="dot"/>
+  <path class="stroke-navy" d="M70 80 L85 92 L78 110"/>
+  <!-- Nodes and connections right -->
+  <circle cx="130" cy="78" r="5" fill="#FFFFFF" stroke="#2F4156" stroke-width="3"/>
+  <circle cx="120" cy="95" r="4" fill="#FFFFFF" stroke="#2F4156" stroke-width="3"/>
+  <circle cx="138" cy="110" r="4" fill="#FFFFFF" stroke="#2F4156" stroke-width="3"/>
+  <path class="stroke-navy" d="M130 78 L120 95 L138 110"/>
+  <!-- Brain stem -->
+  <path class="navy" d="M98 135 h14 v10 c0 6-14 6-14 0z"/>
+  <!-- Text -->
+  <g transform="translate(100,175)" text-anchor="middle" font-family="Inter, system-ui" fill="#2F4156">
+    <text font-size="26" font-weight="700">Nous</text>
+    <text y="18" font-size="12" opacity="0.8">Intelligent Tutoring</text>
+  </g>
+</svg>
+

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nous Tutoring</title>
+    <meta name="description" content="Clases personalizadas y tutorías para potenciar tu aprendizaje.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Nous Intelligent Tutoring" width="36" height="36" />
+                <span>Nous · <span class="logo-sub">Ratium</span></span>
+            </div>
+            <nav class="nav">
+                <a href="#/">Inicio</a>
+                <a href="#/diagnostico">Diagnóstico</a>
+                <a href="#/mapa">Mapa</a>
+                <a href="#/perfil">Perfil</a>
+                <a href="#/ejercicios" class="btn btn-primary">Ejercicios</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" id="app"></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+        </div>
+    </footer>
+
+    <button id="chat-toggle" class="chat-toggle" aria-haspopup="dialog" aria-controls="chat-panel">💬</button>
+    <section id="chat-panel" class="chat-panel" aria-label="Chat con Ratium" hidden>
+        <header class="chat-header">
+            <div class="chat-title">Ratium</div>
+            <button id="chat-close" class="chat-close" aria-label="Cerrar">×</button>
+        </header>
+        <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
+        <form id="chat-form" class="chat-form">
+            <input id="chat-input" type="text" placeholder="Pregúntame algo…" autocomplete="off" />
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div class="chat-hint">Consejo: podemos integrar una API de IA real más adelante.</div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
