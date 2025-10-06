@@ -40,14 +40,13 @@
     <section id="chat-panel" class="chat-panel" aria-label="Chat con Ratium" hidden>
         <header class="chat-header">
             <div class="chat-title">Ratium</div>
-            <button id="chat-close" class="chat-close" aria-label="Cerrar">×</button>
+            <button id="chat-close" class="chat-close" type="button" aria-label="Cerrar">×</button>
         </header>
         <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
         <form id="chat-form" class="chat-form">
             <input id="chat-input" type="text" placeholder="Pregúntame algo…" autocomplete="off" />
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
-        <div class="chat-hint">Consejo: podemos integrar una API de IA real más adelante.</div>
     </section>
 
     <script src="script.js"></script>

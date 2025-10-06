@@ -279,8 +279,19 @@ async function callAI(userText) {
   return data.reply || 'No obtuve respuesta.';
 }
 
-chatToggle?.addEventListener('click', () => { chatPanel.hidden = !chatPanel.hidden; if (!chatPanel.hidden) chatInput.focus(); });
-chatClose?.addEventListener('click', () => { chatPanel.hidden = true; });
+chatToggle?.addEventListener('click', () => {
+  const isHidden = chatPanel.hasAttribute('hidden');
+  if (isHidden) {
+    chatPanel.removeAttribute('hidden');
+    chatInput?.focus();
+  } else {
+    chatPanel.setAttribute('hidden', '');
+  }
+});
+chatClose?.addEventListener('click', (e) => {
+  e.preventDefault();
+  chatPanel.setAttribute('hidden', '');
+});
 chatForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const text = (chatInput.value || '').trim();
