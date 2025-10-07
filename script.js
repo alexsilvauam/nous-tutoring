@@ -279,27 +279,25 @@ async function callAI(userText) {
   return data.reply || 'No obtuve respuesta.';
 }
 
-// Chat event listeners
-if (chatToggle) {
-  chatToggle.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const isHidden = chatPanel.hasAttribute('hidden');
+// Chat functionality
+function toggleChat() {
+  const panel = document.getElementById('chat-panel');
+  if (panel) {
+    const isHidden = panel.hasAttribute('hidden');
     if (isHidden) {
-      chatPanel.removeAttribute('hidden');
-      chatInput?.focus();
+      panel.removeAttribute('hidden');
+      document.getElementById('chat-input')?.focus();
     } else {
-      chatPanel.setAttribute('hidden', '');
+      panel.setAttribute('hidden', '');
     }
-  });
+  }
 }
 
-if (chatClose) {
-  chatClose.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    chatPanel.setAttribute('hidden', '');
-  });
+function closeChat() {
+  const panel = document.getElementById('chat-panel');
+  if (panel) {
+    panel.setAttribute('hidden', '');
+  }
 }
 chatForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -322,4 +320,18 @@ chatForm?.addEventListener('submit', async (e) => {
 
 // Boot
 router(); if (!location.hash) navigate('/');
+
+// Setup chat listeners after DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatClose = document.getElementById('chat-close');
+  
+  if (chatToggle) {
+    chatToggle.addEventListener('click', toggleChat);
+  }
+  
+  if (chatClose) {
+    chatClose.addEventListener('click', closeChat);
+  }
+});
 
