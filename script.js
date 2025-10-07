@@ -294,9 +294,13 @@ function toggleChat() {
 }
 
 function closeChat() {
+  console.log('closeChat called');
   const panel = document.getElementById('chat-panel');
   if (panel) {
+    console.log('Panel found, hiding...');
     panel.setAttribute('hidden', '');
+  } else {
+    console.log('Panel not found!');
   }
 }
 chatForm?.addEventListener('submit', async (e) => {
@@ -321,17 +325,20 @@ chatForm?.addEventListener('submit', async (e) => {
 // Boot
 router(); if (!location.hash) navigate('/');
 
-// Setup chat listeners after DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  const chatToggle = document.getElementById('chat-toggle');
-  const chatClose = document.getElementById('chat-close');
-  
-  if (chatToggle) {
-    chatToggle.addEventListener('click', toggleChat);
-  }
-  
-  if (chatClose) {
-    chatClose.addEventListener('click', closeChat);
-  }
-});
+// Setup chat listeners immediately
+const chatToggle = document.getElementById('chat-toggle');
+const chatClose = document.getElementById('chat-close');
+
+console.log('Chat toggle found:', !!chatToggle);
+console.log('Chat close found:', !!chatClose);
+
+if (chatToggle) {
+  chatToggle.addEventListener('click', toggleChat);
+  console.log('Toggle listener added');
+}
+
+if (chatClose) {
+  chatClose.addEventListener('click', closeChat);
+  console.log('Close listener added');
+}
 
