@@ -279,19 +279,28 @@ async function callAI(userText) {
   return data.reply || 'No obtuve respuesta.';
 }
 
-chatToggle?.addEventListener('click', () => {
-  const isHidden = chatPanel.hasAttribute('hidden');
-  if (isHidden) {
-    chatPanel.removeAttribute('hidden');
-    chatInput?.focus();
-  } else {
+// Chat event listeners
+if (chatToggle) {
+  chatToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isHidden = chatPanel.hasAttribute('hidden');
+    if (isHidden) {
+      chatPanel.removeAttribute('hidden');
+      chatInput?.focus();
+    } else {
+      chatPanel.setAttribute('hidden', '');
+    }
+  });
+}
+
+if (chatClose) {
+  chatClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     chatPanel.setAttribute('hidden', '');
-  }
-});
-chatClose?.addEventListener('click', (e) => {
-  e.preventDefault();
-  chatPanel.setAttribute('hidden', '');
-});
+  });
+}
 chatForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const text = (chatInput.value || '').trim();
